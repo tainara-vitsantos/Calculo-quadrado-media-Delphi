@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
+  Position = poDesktopCenter
   OnKeyDown = FormKeyDown
   TextHeight = 15
   object Label1: TLabel
@@ -131,5 +132,28 @@ object Form1: TForm1
     Caption = 'Fechar'
     TabOrder = 3
     OnClick = btnFecharClick
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 422
+    Width = 624
+    Height = 19
+    Panels = <
+      item
+        Width = 50
+      end
+      item
+        Width = 50
+      end
+      item
+        Width = 50
+      end>
+    ExplicitLeft = 8
+    ExplicitTop = 406
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 16
+    Top = 368
   end
 end

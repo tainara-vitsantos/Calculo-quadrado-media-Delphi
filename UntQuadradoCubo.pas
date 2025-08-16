@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.ExtCtrls;
 
 type
   TForm1 = class(TForm)
@@ -19,10 +19,13 @@ type
     btnCalc: TButton;
     btnLimpar: TButton;
     btnFechar: TButton;
+    Timer1: TTimer;
+    StatusBar1: TStatusBar;
     procedure btnFecharClick(Sender: TObject);
     procedure btnCalcClick(Sender: TObject);
     procedure btnLimparClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -78,6 +81,14 @@ begin
 
         if key = VK_RETURN then
         btnCalc.Click;
+
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+ StatusBar1.Panels[0].Text := DateToStr(Date);
+ StatusBar1.Panels[1].Text :=  FormatDateTime('hh:mm',Time)
+ //TimeToStr(Time);
 
 end;
 
